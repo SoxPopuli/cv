@@ -1,0 +1,252 @@
+% !TEX program = xelatex
+
+\documentclass[11pt, twoside, a4paper]{article}
+
+\usepackage{hyperref}
+\usepackage{calc}
+\usepackage{tikz}
+\usepackage{fontawesome}
+\usetikzlibrary{calc, positioning, backgrounds, matrix}
+
+\usepackage{enumitem}
+\setlist{nosep}
+
+\usepackage{emoji}
+\usepackage{tabularx}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+
+% Define lengths
+\newlength{\margin}
+\setlength{\margin}{0.4cm}
+
+\newlength{\sidewidth}
+\setlength{\sidewidth}{0.3\paperwidth-\margin}
+
+\newlength{\mainwidth}
+\setlength{\mainwidth}{\paperwidth-4\margin-\sidewidth}
+
+\newlength{\cvMargin}
+\setlength{\cvMargin}{1cm}
+
+\newlength{\cvSideWidth}
+\setlength{\cvSideWidth}{0.35\paperwidth-\cvMargin}
+
+\newlength\cvMainWidth
+\setlength\cvMainWidth{\paperwidth-4\cvMargin-\cvSideWidth}
+% End Lengths
+
+%Define Colors
+\definecolor{cvGreen}{HTML}{357F2D}
+% \definecolor{cvLight}{HTML}{B8E4B3}
+\definecolor{cvLight}{HTML}{80ACF2}
+\definecolor{cvDark}{HTML}{2F3142}
+%End Colors
+
+\newcommand{\Col}{ >{\raggedright\arraybackslash} }
+
+\usepackage[margin=\margin, noheadfoot, a4paper]{geometry}
+\usepackage{blindtext}
+\usepackage{xcolor}
+
+\pagestyle{empty}
+
+\makeatletter
+\def\cv@hrulefill{{\color{cvDark}\leavevmode\leaders\hrule height 1pt\hfill\kern\z@}}
+
+% line before and after text
+\NewDocumentCommand{\ruleline}{m}{\par\noindent\raisebox{\baselineskip/4}{\makebox[\linewidth]{\cv@hrulefill\hspace{1ex}\raisebox{-\baselineskip/4}{\textbf{#1}}\hspace{1ex}\cv@hrulefill}}}
+\makeatother
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+
+\begin{tikzpicture}[remember picture, overlay]
+  \fill[cvLight] (current page.north west) 
+    rectangle ++(\cvSideWidth+2\cvMargin,-\paperheight);
+\end{tikzpicture}
+
+%Sidebar content
+% \vspace*{\fill}
+\begin{minipage}[t]{\cvSideWidth}
+    \begin{center}
+        
+        {\LARGE \textbf{Charlotte Smith}}
+        \vspace*{0.3cm}
+
+        {\Large Software Developer}
+        
+        \vspace{0.5cm}
+        
+        \ruleline{About Me}
+
+        \begin{flushleft}
+            I am a passionate software developer with a love of coding and solving
+            problems. \\
+            I am a life-long learner that has experience using all sorts of 
+            different technologies, I can pick up any project in any language
+            and start programming. \\
+        \end{flushleft}
+        
+        \vspace*{0.5cm}
+        \ruleline{Details}
+        \textbf{Tel No}: +44 7493 731512
+
+        \textbf{Email}:
+        \href{mailto:charliesmith5019@gmail.com}
+        {charliesmith5019@gmail.com}
+
+        \hspace{0.2cm}
+            \textbf{Address}: \\
+               45 Pollards Close \\
+               Rochford \\
+               Essex \\
+               SS4 1GF \\
+
+        \vspace*{0.5cm}
+        \ruleline{Links}
+
+        % Github
+        \faGithub{}
+        \textbf{Github}: 
+        \url{https://github.com/SoxPopuli}
+
+
+        %LinkedIn
+        \faLinkedinSquare{}
+        \textbf{LinkedIn}:
+        \url{https://www.linkedin.com/in/charlotte-smith-066569226/}
+
+        \vspace*{0.5cm}
+        \ruleline{Skills}
+
+        \begin{flushleft}
+            \begin{itemize}
+                \item \textbf{Front End Programming}:
+                \begin{itemize}
+                    \item Javascript
+                    \item Typescript
+                    \item Elm
+                    \item React
+                \end{itemize}
+                
+                \item \textbf{Back End Programming}:
+                \begin{itemize}
+                    \item Rust (Actix, Warp)
+                    \item C\# (ASP.NET)
+                \end{itemize}
+                
+                \item \textbf{Systems Programming}:
+                \begin{itemize}
+                    \item C++
+                    \item Rust
+                \end{itemize}
+            
+                \item \textbf{Game Development}:
+                \begin{itemize}
+                    \item Unity, Unreal, Godot
+                    \item 3D Modelling (Blender)
+                \end{itemize}
+            
+                \item \textbf{Graphics Programming}:
+                \begin{itemize}
+                    \item OpenGL
+                    \item Vulkan
+                \end{itemize}
+            
+                \item \textbf{Application Development}:
+                \begin{itemize}
+                    \item .NET (C\#, F\#)
+                    \item JVM (Java, Kotlin, Scala)
+                \end{itemize}
+
+                \item \textbf{Version Control}:
+                \begin{itemize}
+                    \item Git
+                    \item CI/CD
+                \end{itemize}
+
+                \item \textbf{Networking} (The Web kind)
+                \item \textbf{Unit Testing}
+                \item \textbf{Teamwork}
+                % \item \textbf{Friendliness} 
+                    % \emoji{grinning-face-with-smiling-eyes}
+                    % \emoji{slightly-smiling-face}
+            \end{itemize}
+        \end{flushleft}
+
+
+    \end{center}
+\end{minipage}
+\hspace*{1.5cm} % Space: sidebar <-> content
+\begin{minipage}[t]{\textwidth - \cvSideWidth - 3cm}
+    %Main Content
+
+    { \LARGE \ruleline{Profile} }
+
+    I have been programming both for work and for fun since the age of 15,
+    since then, I have exposed myself to all sorts of different
+    technologies and techniques, as a result, I believe that I can 
+    integrate myself into any kind of tech stack or environment I come across
+    given enough time. \\
+
+    I have experience with many different kinds of development, from low level 
+    systems programming to web development, and most things in-between, as well 
+    as a multitude of programming paradigms such as \textit{Object Oriented} and 
+    \textit{Functional} programming.
+
+    { \vspace{0.5cm} \LARGE \ruleline{Education} }
+
+    \begin{center}
+        \begin{tabularx}{0.9\textwidth}{ >{\raggedright\arraybackslash}X c}
+            \textbf{Fitzpatrick Secondary School: GCSE} & 2009 - 2016 \\
+            \hline
+            \begin{itemize}
+                \item Maths               
+                \item English 
+                \item English 
+                \item Physics             
+                \item Biology             
+                \item Chemistry           
+                \item Engineering         
+                \item Business            
+            \end{itemize} \\
+
+            \textbf{South Essex College: A Level} & 2016 - 2017 \\
+            \hline
+            \begin{itemize}
+                \item Maths
+                \item Computing
+                \item Physics
+            \end{itemize} \\
+
+            \textbf{Keele University} & 2017 - 2022 \\
+            \hline
+            \begin{itemize}
+                \item Bachelors of Computer Science (2:2)
+            \end{itemize} \\
+        \end{tabularx}
+    \end{center}
+
+    { \vspace{0.5cm} \LARGE \ruleline{Career} }
+
+    \textbf{Thames Technology} \hfill Oct 2022 - Present
+    \hrule 
+    \vspace{0.1cm}
+    { \color{gray} \textit{Software Developer} } \\
+    Currently, I am responsible for producing scripts that personalise 
+    financial cards according to customer specifications, such as how
+    the cards will behave in certain situations.
+
+    Given the nature of the job, it requires an analytical mind with an eye
+    for detail as the margins for error are slim to none, as well as an
+    in-depth knowledge of security and cryptography.
+        
+    I am also responsible for the development of additional software as
+    required by the business.
+
+
+\end{minipage}
+
+\end{document}
