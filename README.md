@@ -1,5 +1,8 @@
 # CV
 
-This is my cv.
+This is my cv. requires *lualatex*
 
-Compile it with lualatex
+## Building
+```bash
+make
+```
