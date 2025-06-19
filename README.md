@@ -1,8 +1,8 @@
 # CV
 
-This is my cv. requires *lualatex*
+This is my cv. 
 
 ## Building
 ```bash
-make
+typst compile main.typ
 ```
